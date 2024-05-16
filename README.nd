@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 This is a project i started to make a replica of the mime sweeper game, 
 your goal is to dig up tiles that are not mines 
 and to do that, you have tp depend on the numbers given to yoy by the tiles on the board or field. 
@@ -5,3 +6,12 @@ The number on each tile indicate the number of mines surrounding it.
 if a tile has the number 2 then out of the 8 tiles touching it, there are 2 with mines. 
 this is a terminal based implementation
 added a few colors to make it seem colorful and attention grabbing. 
+=======
+This is a project i started to make a replica of the mime sweeper game, 
+your goal is to dig up tiles that are not mines 
+and to do that, you have tp depend on the numbers given to yoy by the tiles on the board or field. 
+The number on each tile indicate the number of mines surrounding it. 
+if a tile has the number 2 then out of the 8 tiles touching it, there are 2 with mines. 
+this is a terminal based implementation
+added a few colors to make it seem colorful and attention grabbing. 
+>>>>>>> 9e9debfa45ed541835300bd4eab44a642a604073
