@@ -13,5 +13,6 @@ and to do that, you have tp depend on the numbers given to yoy by the tiles on t
 The number on each tile indicate the number of mines surrounding it. 
 if a tile has the number 2 then out of the 8 tiles touching it, there are 2 with mines. 
 this is a terminal based implementation
-added a few colors to make it seem colorful and attention grabbing. 
+added a few colors to make it a bit colorful and attention grabbing. 
+Working on the users access of tiles currently. 
 >>>>>>> 9e9debfa45ed541835300bd4eab44a642a604073
