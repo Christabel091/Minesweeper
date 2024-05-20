@@ -10,10 +10,13 @@
 const std::string green_bg = "\033[42m";
 const std::string red_bg = "\033[41m";
 const std::string white_bg = "\037[47m";
-const std::string brown_bg = "\033[48;2;100;90;20m"; // RGB: 139, 69, 19
+const std::string brown_bg = "\033[48;2;60;29;10m"; // RGB: 139, 69, 19
 const std::string black_bg = "\033[40m";
 const std::string reset_color = "\033[0m";
 const std::string blue_fg = "\033[34m";
+const std::string red_fg = "\033[31m";
+const std::string purple_fg = "\033[35m";
+const std::string green_fg = "\033[36m";
 const std::string white_fg = "\033[97m";
 
 Board::Board(int m_height, int m_width, int num_mines){
@@ -95,12 +98,8 @@ void Board::revealed_board(){
     //but just for this project, the location of the mines will be displayed
 
      // ANSI escape codes for colors
-    for (int k{0} ; k < width ; k++){
-            std::cout << std::right << std::setw(4) << k;
-        }
-        std::cout << '\n';
     for (int i=0; i< height; i++){
-        std::cout << "  |";
+        std::cout << '|';
 
         for (int j{0}; j < width ; j++){
             std::cout << green_bg << white_fg;
@@ -108,7 +107,6 @@ void Board::revealed_board(){
             std::cout << reset_color;
         }
         std::cout << '\n';
-        std::cout << std::left << std::setw(2) << i  ;
         std::cout << '|';
         for (int j = 0; j < width ; j++){
             if (lost == true && board[width * i +j].get_tileValue() == -1){
@@ -117,15 +115,27 @@ void Board::revealed_board(){
             else if (board[(width * i)+j].get_tileIsRevealed() == false ){
                 std::cout <<  green_bg ;
                 std::cout  <<  std::setw(2) << "  "  <<" |" ;
+            }else if (board[width * i +j].get_tileValue() == 1){
+                std::cout   <<  brown_bg << green_fg;
+                 std::cout << std::right<< std::setw(2) << board[width * i +j].get_tileValue() << " |";
+            }else if (board[width * i +j].get_tileValue() == 2){
+                std::cout   <<  brown_bg << blue_fg;
+                 std::cout << std::right<< std::setw(2) << board[width * i +j].get_tileValue() << " |";
+            }else if (board[width * i +j].get_tileValue() == 3){
+                std::cout   <<  brown_bg << red_fg;
+                 std::cout << std::right<< std::setw(2) << board[width * i +j].get_tileValue() << " |";
+            }else if (board[width * i +j].get_tileValue() == 4){
+                std::cout   <<  brown_bg << purple_fg;
+                 std::cout << std::right<< std::setw(2) << board[width * i +j].get_tileValue() << " |";
             }else {
-                std::cout <<  brown_bg << blue_fg;
-                std::cout << std::right<< std::setw(2) << board[width * i +j].get_tileValue() << " |";
+                std::cout <<  brown_bg;
+                std::cout << std::right<< std::setw(2) << "  " << " |";
             }
             std::cout << reset_color;
         }
         std ::cout << '\n';
     }
-    std::cout << "  |";
+    std::cout << '|';
     for (int i{0}; i < width ; i++){
         std::cout << green_bg << white_fg;
         std::cout <<"---|";
