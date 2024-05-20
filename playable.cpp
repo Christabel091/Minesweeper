@@ -1,6 +1,11 @@
-#include<iostream>
-#include<string>
+#include <iostream>
+#include <string>
 #include "Board.h"
+
+void clearScreen() {
+    // ANSI escape code to clear the screen and move the cursor to the top-left corner
+    std::cout << "\033[2J\033[1;1H";
+}
 
 int main() {
     int width, height, num_mines;
@@ -29,7 +34,7 @@ int main() {
     mines.revealed_board();
     int row, coln;
     std::cout << "Enter a row and colunm to dig: ";
-     std::cin >> row >> coln;
+    std::cin >> row >> coln;
     mines.place_mines(row, coln);
     mines.update_count();
     bool haveWon, haveLost;
@@ -37,13 +42,13 @@ int main() {
     haveWon = mines.have_won(row, coln);
     haveLost = mines.have_lost(row, coln);
     while ((!haveWon) && (!haveLost)){
+        clearScreen(); // Clear the screen before re-drawing the board
         mines.revealed_board();
         std::cout << "Enter a row and colunm to dig: ";
         std::cin >> row >> coln;
         mines.recurse_tile(row, coln);
         haveWon = mines.have_won(row, coln);
         haveLost = mines.have_lost(row, coln);
-        
     }
     return 0;
 }
